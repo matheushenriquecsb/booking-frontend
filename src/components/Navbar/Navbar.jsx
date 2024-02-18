@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbarContainer">
         <Link to="/">
-          <span className="logo">Booking</span>
+          <span className="logo">Booking.com</span>
         </Link>
         <div className="navbarItems">
           <button className="navbarButton">Cadastre-se</button>
