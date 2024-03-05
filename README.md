@@ -1,11 +1,9 @@
 ## Booking Website 
 
-![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge) 
+### Tech Stacks
 
-## Tecnologias e dependências utilizadas
-
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+[![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)](https://pt-br.reactjs.org)
+[![CSS3](https://img.shields.io/badge/-CSS3-333333?style=flat&logo=css3&logoColor=blue)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
  
 ## Instalação
 
