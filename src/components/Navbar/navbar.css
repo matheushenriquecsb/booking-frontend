@@ -22,6 +22,7 @@
 
 .logo {
   font-size: 25px;
+<<<<<<< HEAD
   font-weight: 700;
   font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica,
     Arial, sans-serif;
@@ -29,6 +30,15 @@
 
 .navbarButton {
   font-weight: 600;
+=======
+  font-weight: 500;
+}
+
+.navbarButton {
+  font-size: 17px;
+  font-weight: 700;
+  align-items: center;
+>>>>>>> c9cf5420a2632f1fe30c98a12dbcdaedcc3bc60d
   margin-left: 20px;
   border: none;
   border-radius: 3px;
