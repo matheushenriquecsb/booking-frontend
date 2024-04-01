@@ -21,7 +21,6 @@ const Home = () => {
         <h1 className="homeTitle">Casas e apartamentos que os hóspedes amam</h1>
         <FeaturedProperties />
         <MailList />
-        <Announce />
         <Footer />
       </div>
     </div>
