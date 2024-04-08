@@ -3,7 +3,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "http://localhost:4000/hotels/countByCity?cities=Bahia,sergipe"
+    "https://real-cyan-lemming-toga.cyclic.app/hotels/countByCity?cities=Salvador,Gramado,rio de janeiro"
   );
 
   console.log(data, error);
@@ -16,36 +16,36 @@ const Featured = () => {
         <>
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
+              src="https://revistaazul.voeazul.com.br/wp-content/uploads/2023/03/conheca-salvador-e-se-apaixone-pela-capital-baiana.jpeg"
               alt=""
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Dublin</h1>
-              <h2>{data[1]} Propriedades</h2>
+              <h1>Salvador</h1>
+              <h2>{data[0]} Propriedades</h2>
             </div>
           </div>
 
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
+              src="https://www.cnnbrasil.com.br/viagemegastronomia/wp-content/uploads/sites/5/2022/03/Gramado-divulgacao.jpg?w=1200&h=1200&crop=1"
               alt=""
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Reno</h1>
-              <h2>{data[0]} Propriedades</h2>
+              <h1>Gramado</h1>
+              <h2>{data[1]} Propriedades</h2>
             </div>
           </div>
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/689422.webp?k=2595c93e7e067b9ba95f90713f80ba6e5fa88a66e6e55600bd27a5128808fdf2&o="
+              src="https://emcasa.com/blog/wp-content/uploads/2022/06/eelco-bohtlingk-dPYmxwKLGOI-unsplash.jpg"
               alt=""
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>Austin</h1>
-              <h2>{data[1]} Propriedades</h2>
+              <h1>Rio de Janeiro</h1>
+              <h2>{data[2]} Propriedades</h2>
             </div>
           </div>
         </>
