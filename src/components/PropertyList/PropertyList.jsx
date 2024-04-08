@@ -3,7 +3,7 @@ import "./propertyList.css";
 
 const PropertyList = () => {
   const { data, loading, error } = useFetch(
-    "http://localhost:4000/hotels/countByType"
+    "https://real-cyan-lemming-toga.cyclic.app/hotels/countByType"
   );
 
   console.log(error);
