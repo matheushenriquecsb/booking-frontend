@@ -1,4 +1,3 @@
-import Announce from "../../components/Announce/announce";
 import Featured from "../../components/Featured/Featured";
 import FeaturedProperties from "../../components/FeaturedProperties/FeaturedProperties";
 import Footer from "../../components/Footer/Footer";

@@ -1,41 +1,41 @@
-import "./hotel.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Header from "../../components/Header/Header";
-import MailList from "../../components/MailList/MailList";
-import Footer from "../../components/Footer/Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/* eslint-disable no-unused-vars */
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
   faCircleXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import MailList from "../../components/MailList/MailList";
+import Navbar from "../../components/Navbar/Navbar";
+import { SearchContext } from "../../context/SearchContext";
+import useFetch from "../../hooks/useFetch";
+import "./hotel.css";
 
 const Hotel = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
+  const { dates } = useContext(SearchContext);
 
-  const photos = [
-    {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707778.jpg?k=56ba0babbcbbfeb3d3e911728831dcbc390ed2cb16c51d88159f82bf751d04c6&o=&hp=1",
-    },
-    {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707367.jpg?k=cbacfdeb8404af56a1a94812575d96f6b80f6740fd491d02c6fc3912a16d8757&o=&hp=1",
-    },
-    {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261708745.jpg?k=1aae4678d645c63e0d90cdae8127b15f1e3232d4739bdf387a6578dc3b14bdfd&o=&hp=1",
-    },
-    {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707776.jpg?k=054bb3e27c9e58d3bb1110349eb5e6e24dacd53fbb0316b9e2519b2bf3c520ae&o=&hp=1",
-    },
-    {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261708693.jpg?k=ea210b4fa329fe302eab55dd9818c0571afba2abd2225ca3a36457f9afa74e94&o=&hp=1",
-    },
-    {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
-    },
-  ];
+  const { data, error, loading } = useFetch(
+    `https://real-cyan-lemming-toga.cyclic.app/hotels/find/${id}`
+  );
+
+  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+  function dayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+    return diffDays;
+  }
+
+  const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -58,84 +58,84 @@ const Hotel = () => {
     <div>
       <Navbar />
       <Header type="list" />
-      <div className="hotelContainer">
-        {open && (
-          <div className="slider">
-            <FontAwesomeIcon
-              icon={faCircleXmark}
-              className="close"
-              onClick={() => setOpen(false)}
-            />
-            <FontAwesomeIcon
-              icon={faCircleArrowLeft}
-              className="arrow"
-              onClick={() => handleMove("l")}
-            />
-            <div className="sliderWrapper">
-              <img src={photos[slideNumber].src} alt="" className="sliderImg" />
-            </div>
-            <FontAwesomeIcon
-              icon={faCircleArrowRight}
-              className="arrow"
-              onClick={() => handleMove("r")}
-            />
-          </div>
-        )}
-        <div className="hotelWrapper">
-          <button className="bookNow">Reserve agora!</button>
-          <h1 className="hotelTitle">Apartmento Centro</h1>
-          <div className="hotelAddress">
-            <FontAwesomeIcon icon={faLocationDot} />
-            <span>Corredor da Vitória, 256, Salvador</span>
-          </div>
-          <span className="hotelDistance">
-            Excelente localização – 500m do centro
-          </span>
-          <span className="hotelPriceHighlight">
-            Reserve uma estadia acima de R$ 114 nesta propriedade e ganhe um
-            táxi gratuito do aeroporto
-          </span>
-          <div className="hotelImages">
-            {photos.map((photo, i) => (
-              <div className="hotelImgWrapper" key={i}>
+      {loading ? (
+        "loading"
+      ) : (
+        <div className="hotelContainer">
+          {open && (
+            <div className="slider">
+              <FontAwesomeIcon
+                icon={faCircleXmark}
+                className="close"
+                onClick={() => setOpen(false)}
+              />
+              <FontAwesomeIcon
+                icon={faCircleArrowLeft}
+                className="arrow"
+                onClick={() => handleMove("l")}
+              />
+              <div className="sliderWrapper">
                 <img
-                  onClick={() => handleOpen(i)}
-                  src={photo.src}
+                  src={data.photos[slideNumber]?.src}
                   alt=""
-                  className="hotelImg"
+                  className="sliderImg"
                 />
               </div>
-            ))}
-          </div>
-          <div className="hotelDetails">
-            <div className="hotelDetailsTexts">
-              <h1 className="hotelTitle">Uma das melhores vistas da cidade!</h1>
-              <p className="hotelDesc">
-                Localizado a 5 minutos da praia do Porto da Barra, dispõe de
-                acomodações com ar-condicionado e Wifi grátis. As unidades
-                contam com piso de madeira e dispõem de kitnet totalmente
-                equipada com microondas, televisão, e uma casa de banho
-                privativa com chuveiro e secador de cabelo. A geladeira tambem
-                está incluso, bem como um bule de chá elétrico e uma cafeteira
-                máquina.
-              </p>
+              <FontAwesomeIcon
+                icon={faCircleArrowRight}
+                className="arrow"
+                onClick={() => handleMove("r")}
+              />
             </div>
-            <div className="hotelDetailsPrice">
-              <h1>Perfeito para uma estadia de 9 noites!</h1>
-              <span>
-                Localizada no verdadeiro coração de Salvador, esta propriedade
-                tem um excelente pontuação de localização de 9,8!
-              </span>
-              <h2>
-                <b>R$945</b> (9 noites)
-              </h2>
-              <button>Reserve agora!</button>
+          )}
+          <div className="hotelWrapper">
+            <button className="bookNow">Reserve agora!</button>
+            <h1 className="hotelTitle">{data.name}</h1>
+            <div className="hotelAddress">
+              <FontAwesomeIcon icon={faLocationDot} />
+              <span>{data.address}</span>
+            </div>
+            <span className="hotelDistance">
+              Excelente localização – {data.distance}m do centro
+            </span>
+            <span className="hotelPriceHighlight">
+              Reserve uma estadia acima de R$ {data.cheapestPrice} nesta
+              propriedade e ganhe um táxi gratuito do aeroporto
+            </span>
+            <div className="hotelImages">
+              {data.photos?.map((photo, i) => (
+                <div className="hotelImgWrapper" key={i}>
+                  <img
+                    onClick={() => handleOpen(i)}
+                    src={photo}
+                    alt=""
+                    className="hotelImg"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="hotelDetails">
+              <div className="hotelDetailsTexts">
+                <p className="hotelDesc">{data.desc}</p>
+              </div>
+              <div className="hotelDetailsPrice">
+                <h1>Perfeito para uma estadia de {days} noites!</h1>
+                <span>
+                  Localizada no verdadeiro coração da cidade, esta propriedade
+                  tem um excelente pontuação de localização de
+                  {data.rating}!
+                </span>
+                <h2>
+                  <b>R$ {days * data.cheapestPrice}</b> ({days} noites)
+                </h2>
+                <button>Reserve agora!</button>
+              </div>
             </div>
           </div>
+          <MailList />
+          <Footer />
         </div>
-        <MailList />
-        <Footer />
-      </div>
+      )}
     </div>
   );
 };
