@@ -1,12 +1,11 @@
+/* eslint-disable no-unused-vars */
 import useFetch from "../../hooks/useFetch";
 import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "https://real-cyan-lemming-toga.cyclic.app/hotels/countByCity?cities=Salvador,Gramado,rio de janeiro"
+    "https://real-cyan-lemming-toga.cyclic.app/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro"
   );
-
-  console.log(data, error);
 
   return (
     <div className="featured">
@@ -17,7 +16,7 @@ const Featured = () => {
           <div className="featuredItem">
             <img
               src="https://revistaazul.voeazul.com.br/wp-content/uploads/2023/03/conheca-salvador-e-se-apaixone-pela-capital-baiana.jpeg"
-              alt=""
+              alt="Imagem Salvador"
               className="featuredImg"
             />
             <div className="featuredTitles">
@@ -29,7 +28,7 @@ const Featured = () => {
           <div className="featuredItem">
             <img
               src="https://www.cnnbrasil.com.br/viagemegastronomia/wp-content/uploads/sites/5/2022/03/Gramado-divulgacao.jpg?w=1200&h=1200&crop=1"
-              alt=""
+              alt="Imagem Gramado"
               className="featuredImg"
             />
             <div className="featuredTitles">
@@ -40,7 +39,7 @@ const Featured = () => {
           <div className="featuredItem">
             <img
               src="https://emcasa.com/blog/wp-content/uploads/2022/06/eelco-bohtlingk-dPYmxwKLGOI-unsplash.jpg"
-              alt=""
+              alt="Imagem Rio de Janeiro"
               className="featuredImg"
             />
             <div className="featuredTitles">
