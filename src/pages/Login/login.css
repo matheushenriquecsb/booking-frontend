@@ -1,0 +1,70 @@
+.signinContainer {
+  padding: 0.75rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-right: auto;
+}
+
+.signinTitle {
+  font-size: 1.875rem;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputUsername {
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.inputEmail {
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.inputPassword {
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.signupButton {
+  background-color: #003580;
+  color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+  :hover {
+    opacity: 0.95;
+  }
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.loginContainer {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.loginText {
+  color: #4299e1;
+}
+
+.textBottom {
+  margin: 40px;
+  text-justify: center;
+  align-items: center;
+  justify-items: center;
+}

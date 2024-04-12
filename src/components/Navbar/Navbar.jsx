@@ -11,8 +11,12 @@ const Navbar = () => {
         </Link>
         <div className="navbarItems">
           <QuestionCircleOutlined style={{ fontSize: "18px" }} />
-          <button className="navbarButton">Cadastre-se</button>
-          <button className="navbarButton">Entre</button>
+          <Link to="/signup">
+            <button className="navbarButton">Cadastre-se</button>
+          </Link>
+          <Link to="/signin">
+            <button className="navbarButton">Entre</button>
+          </Link>
         </div>
       </div>
     </div>
