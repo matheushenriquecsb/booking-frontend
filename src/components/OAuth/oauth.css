@@ -1,0 +1,68 @@
+.loginGoogle {
+  width: 510px;
+  background-color: #e53e3e;
+  border: none;
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.loginGithub {
+  background-color: rgba(43, 42, 42, 0.781);
+  width: 510px;
+  border: none;
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  text-transform: uppercase;
+}
+
+.separator {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  color: #8b8e98;
+}
+
+.separator .line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background-color: #e8e8e8;
+}
+
+.socialMedia {
+  margin-top: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 30px;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.mediaIcon {
+  width: 40px;
+  margin: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+.socialMedia button {
+  background-color: white;
+  border: 1px solid rgba(214, 210, 210, 0.993);
+  cursor: pointer;
+}
+
+.socialMedia button:hover {
+  border: 1px solid #2d79f3;
+}

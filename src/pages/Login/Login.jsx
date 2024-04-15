@@ -1,25 +1,33 @@
-import axios from "axios";
-import { InfoCircleOutlined } from "@ant-design/icons";
+import { InfoCircleOutlined, LoadingOutlined } from "@ant-design/icons";
 import { Input, Tooltip } from "antd";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import Navbar from "../../components/Navbar/Navbar";
+import OAuth from "../../components/OAuth/OAuth";
 import "./login.css";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       await axios.post(
         "https://real-cyan-lemming-toga.cyclic.app/auth/login",
         formData
       );
+      setLoading(false);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -31,11 +39,11 @@ export default function SignIn() {
       <div className="signinContainer">
         <h1 className="signinTitle">faça o login</h1>
         <form onSubmit={handleSubmit} className="inputContainer">
-          <h4>Username</h4>
+          <h4>Email</h4>
           <Input
-            placeholder="Insira seu nome de usúario"
+            placeholder="Insira seu email"
             type="text"
-            id="username"
+            id="email"
             className="inputUsername"
             suffix={
               <Tooltip title="No máximo 8 caracteres">
@@ -52,12 +60,15 @@ export default function SignIn() {
             className="inputPassword"
             onChange={handleChange}
           />
-          <button className="signupButton">Login</button>
+          <button className="signinButton">
+            {loading ? <LoadingOutlined /> : "login"}
+          </button>
+          <OAuth />
         </form>
-        <div className="loginContainer">
+        <div className="signupContainer">
           <p>Ainda não possui conta?</p>
-          <Link to="/signup">
-            <span className="loginText">Cadastre-se</span>
+          <Link className="signupLink" to="/signup">
+            <span>Cadastre-se</span>
           </Link>
         </div>
       </div>
