@@ -22,7 +22,7 @@ export default function SignIn() {
     try {
       setLoading(true);
       await axios.post(
-        "https://real-cyan-lemming-toga.cyclic.app/auth/register",
+        `${import.meta.env.VITE_BASE_URL}/auth/register`,
         formData
       );
       setLoading(false);

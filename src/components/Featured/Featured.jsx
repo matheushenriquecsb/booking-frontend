@@ -4,7 +4,9 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "https://real-cyan-lemming-toga.cyclic.app/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro"
+    `${
+      import.meta.env.VITE_BASE_URL
+    }/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro`
   );
 
   return (

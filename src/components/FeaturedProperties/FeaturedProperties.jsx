@@ -3,7 +3,7 @@ import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading } = useFetch(
-    "https://real-cyan-lemming-toga.cyclic.app/hotels/featured?featured=true&limit=4"
+    `${import.meta.env.VITE_BASE_URL}/hotels/featured?featured=true&limit=4`
   );
 
   return (

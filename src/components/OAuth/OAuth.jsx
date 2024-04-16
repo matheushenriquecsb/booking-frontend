@@ -5,7 +5,6 @@ import {
   getAuth,
   signInWithPopup,
 } from "firebase/auth";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { app } from "../../hooks/firebase";
 import "./oauth.css";
@@ -18,12 +17,9 @@ export default function OAuth() {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      await axios.post(
-        "https://real-cyan-lemming-toga.cyclic.app/auth/login-google",
-        {
-          email: result.user.email,
-        }
-      );
+      await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login-google`, {
+        email: result.user.email,
+      });
 
       navigate("/");
     } catch (error) {

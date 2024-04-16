@@ -17,7 +17,7 @@ const List = () => {
   const [options] = useState(location.state.options);
 
   const { data, error, loading } = useFetch(
-    `https://real-cyan-lemming-toga.cyclic.app/hotels?city=${destination}`
+    `${import.meta.env.VITE_BASE_URL}/hotels?city=${destination}`
   );
 
   return (
