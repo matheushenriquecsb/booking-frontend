@@ -17,9 +17,12 @@ export default function OAuth() {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login-google`, {
-        email: result.user.email,
-      });
+      await axios.post(
+        "https://booking-backend-nestjs.onrender.com/auth/login-google",
+        {
+          email: result.user.email,
+        }
+      );
 
       navigate("/");
     } catch (error) {

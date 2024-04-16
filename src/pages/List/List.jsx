@@ -17,7 +17,7 @@ const List = () => {
   const [options] = useState(location.state.options);
 
   const { data, error, loading } = useFetch(
-    `${import.meta.env.VITE_BASE_URL}/hotels?city=${destination}`
+    "https://booking-backend-nestjs.onrender.com/hotels?city=${destination}"
   );
 
   return (
