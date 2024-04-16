@@ -3,7 +3,7 @@ import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading } = useFetch(
-    `${import.meta.env.VITE_BASE_URL}/hotels/featured?featured=true&limit=4`
+    "https://booking-backend-nestjs.onrender.com/hotels/featured?featured=true&limit=4"
   );
 
   return (

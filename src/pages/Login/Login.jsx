@@ -22,7 +22,10 @@ export default function SignIn() {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, formData);
+      await axios.post(
+        "https://booking-backend-nestjs.onrender.com/auth/login",
+        formData
+      );
       setLoading(false);
       navigate("/");
     } catch (error) {

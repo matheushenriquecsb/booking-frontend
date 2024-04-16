@@ -4,7 +4,7 @@ import "./propertyList.css";
 
 const PropertyList = () => {
   const { data, loading } = useFetch(
-    `${import.meta.env.VITE_BASE_URL}/hotels/countByType`
+    "https://booking-backend-nestjs.onrender.com/hotels/countByType"
   );
 
   const images = [

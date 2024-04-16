@@ -4,9 +4,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    `${
-      import.meta.env.VITE_BASE_URL
-    }/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro`
+    "https://booking-backend-nestjs.onrender.com/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro"
   );
 
   return (
