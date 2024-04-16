@@ -25,7 +25,7 @@ const Hotel = () => {
   const { dates } = useContext(SearchContext);
 
   const { data, error, loading } = useFetch(
-    `https://real-cyan-lemming-toga.cyclic.app/hotels/find/${id}`
+    `${import.meta.env.VITE_BASE_URL}/hotels/find/${id}`
   );
 
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;

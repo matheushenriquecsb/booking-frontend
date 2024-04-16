@@ -4,7 +4,7 @@ import "./propertyList.css";
 
 const PropertyList = () => {
   const { data, loading } = useFetch(
-    "https://real-cyan-lemming-toga.cyclic.app/hotels/countByType"
+    `${import.meta.env.VITE_BASE_URL}/hotels/countByType`
   );
 
   const images = [
