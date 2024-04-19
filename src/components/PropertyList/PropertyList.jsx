@@ -4,7 +4,7 @@ import "./propertyList.css";
 
 const PropertyList = () => {
   const { data, loading } = useFetch(
-    "https://booking-backend-nestjs.onrender.com/hotels/countByType"
+    "https://joyous-shirt-foal.cyclic.app/hotels/countByType"
   );
 
   const images = [
