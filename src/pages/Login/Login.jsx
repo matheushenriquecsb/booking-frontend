@@ -23,7 +23,7 @@ export default function SignIn() {
     try {
       setLoading(true);
       await axios.post(
-        "https://booking-backend-nestjs.onrender.com/auth/login",
+        "https://joyous-shirt-foal.cyclic.app/auth/login",
         formData
       );
       setLoading(false);

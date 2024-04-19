@@ -3,7 +3,7 @@ import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading } = useFetch(
-    "https://booking-backend-nestjs.onrender.com/hotels/featured?featured=true&limit=4"
+    "https://joyous-shirt-foal.cyclic.app/hotels/featured?featured=true&limit=4"
   );
 
   return (

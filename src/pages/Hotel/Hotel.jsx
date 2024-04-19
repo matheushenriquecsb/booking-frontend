@@ -25,7 +25,7 @@ const Hotel = () => {
   const { dates } = useContext(SearchContext);
 
   const { data, error, loading } = useFetch(
-    "https://booking-backend-nestjs.onrender.com/hotels/find/${id}"
+    `https://joyous-shirt-foal.cyclic.app/hotels/find/${id}`
   );
 
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;

@@ -17,7 +17,7 @@ const List = () => {
   const [options] = useState(location.state.options);
 
   const { data, error, loading } = useFetch(
-    "https://booking-backend-nestjs.onrender.com/hotels?city=${destination}"
+    `https://joyous-shirt-foal.cyclic.app/hotels?city=${destination}`
   );
 
   return (

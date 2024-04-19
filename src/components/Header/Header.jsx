@@ -13,7 +13,7 @@ import { format } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 
 // eslint-disable-next-line react/prop-types
@@ -88,7 +88,9 @@ const Header = ({ type }) => {
             <p className="headerDescription">
               Encontre ofertas em hotéis, casas, apartamentos e muito mais...
             </p>
-            <button className="headerButton">Cadastre-se / Entre</button>
+            <Link to="signup">
+              <button className="headerButton">Cadastre-se / Entre</button>
+            </Link>
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />

@@ -18,7 +18,7 @@ export default function OAuth() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       await axios.post(
-        "https://booking-backend-nestjs.onrender.com/auth/login-google",
+        "https://joyous-shirt-foal.cyclic.app/auth/login-google",
         {
           email: result.user.email,
         }
@@ -35,7 +35,7 @@ export default function OAuth() {
       const provider = new GithubAuthProvider();
       const result = await signInWithPopup(auth, provider);
       await axios.post(
-        "https://real-cyan-lemming-toga.cyclic.app/auth/login-github",
+        "https://joyous-shirt-foal.cyclic.app/auth/login-github",
         {
           fullName: result.user.displayName,
         }
