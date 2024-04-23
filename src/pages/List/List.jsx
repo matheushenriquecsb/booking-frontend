@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/SearchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const List = () => {
   const location = useLocation();
@@ -97,7 +98,7 @@ const List = () => {
           </div>
           <div className="listResult">
             {loading ? (
-              "loading"
+              <LoadingOutlined />
             ) : (
               <>
                 {data.map((item) => (

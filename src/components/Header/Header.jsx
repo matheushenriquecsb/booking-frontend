@@ -15,6 +15,7 @@ import "react-date-range/dist/theme/default.css";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 // eslint-disable-next-line react/prop-types
 const Header = ({ type }) => {
@@ -45,6 +46,8 @@ const Header = ({ type }) => {
   };
 
   const navigate = useNavigate();
+
+  const { user } = useContext(AuthContext);
 
   const { dispatch } = useContext(SearchContext);
 
@@ -88,9 +91,11 @@ const Header = ({ type }) => {
             <p className="headerDescription">
               Encontre ofertas em hotéis, casas, apartamentos e muito mais...
             </p>
-            <Link to="signup">
-              <button className="headerButton">Cadastre-se / Entre</button>
-            </Link>
+            {!user && (
+              <Link to="signup">
+                <button className="headerButton">Cadastre-se / Entre</button>
+              </Link>
+            )}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />

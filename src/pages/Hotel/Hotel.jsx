@@ -16,6 +16,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { SearchContext } from "../../context/SearchContext";
 import useFetch from "../../hooks/useFetch";
 import "./hotel.css";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const Hotel = () => {
   const location = useLocation();
@@ -59,7 +60,7 @@ const Hotel = () => {
       <Navbar />
       <Header type="list" />
       {loading ? (
-        "loading"
+        <LoadingOutlined />
       ) : (
         <div className="hotelContainer">
           {open && (

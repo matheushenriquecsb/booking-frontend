@@ -22,7 +22,7 @@ export default function SignIn() {
     try {
       setLoading(true);
       await axios.post(
-        "https://joyous-shirt-foal.cyclic.app/auth/register",
+        "https://joyous-shirt-foal.cyclic.app/auth/register", 
         formData
       );
       setLoading(false);
