@@ -1,16 +1,19 @@
 import { InfoCircleOutlined, LoadingOutlined } from "@ant-design/icons";
 import { Input, Tooltip } from "antd";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "../../components/Navbar/Navbar";
 import OAuth from "../../components/OAuth/OAuth";
+import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
+
+  const { dispatch } = useContext(AuthContext);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -20,16 +23,19 @@ export default function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch({ type: "LOGIN_START" });
     try {
       setLoading(true);
-      await axios.post(
+      const res = await axios.post(
         "https://joyous-shirt-foal.cyclic.app/auth/login",
         formData
       );
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       setLoading(false);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
+      throw new Error(error);
     }
   };
 

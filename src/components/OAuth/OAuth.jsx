@@ -8,41 +8,48 @@ import {
 import { useNavigate } from "react-router-dom";
 import { app } from "../../hooks/firebase";
 import "./oauth.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function OAuth() {
   const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
   const auth = getAuth(app);
 
   const handleGoogleClick = async () => {
+    dispatch({ type: "LOGIN_START" });
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      await axios.post(
+      const res = await axios.post(
         "https://joyous-shirt-foal.cyclic.app/auth/login-google",
         {
           email: result.user.email,
         }
       );
-
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/");
     } catch (error) {
+      dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
       throw new Error(error);
     }
   };
 
   const handleGithubClick = async () => {
+    dispatch({ type: "LOGIN_START" });
     try {
       const provider = new GithubAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      await axios.post(
+      const res = await axios.post(
         "https://joyous-shirt-foal.cyclic.app/auth/login-github",
         {
           fullName: result.user.displayName,
         }
       );
-
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/");
     } catch (error) {
+      dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
       throw new Error(error);
     }
   };
