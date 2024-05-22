@@ -27,7 +27,7 @@ export default function SignIn() {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/auth/login`,
+        `https://booking-api.adaptable.app/auth/login`,
         formData
       );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });

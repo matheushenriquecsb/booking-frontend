@@ -4,7 +4,7 @@ import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading } = useFetch(
-    `${import.meta.env.VITE_API_URL}/hotels/featured?featured=true&limit=4`
+    `https://booking-api.adaptable.app/hotels/featured?featured=true&limit=4`
   );
 
   return (

@@ -18,7 +18,7 @@ const List = () => {
   const [options] = useState(location.state.options);
 
   const { data, error, loading } = useFetch(
-    `${import.meta.env.VITE_API_URL}/hotels?city=${destination}`
+    `https://booking-api.adaptable.app/hotels?city=${destination}`
   );
 
   return (
