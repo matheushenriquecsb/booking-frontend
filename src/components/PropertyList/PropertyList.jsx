@@ -5,7 +5,7 @@ import "./propertyList.css";
 
 const PropertyList = () => {
   const { data, loading } = useFetch(
-    "https://joyous-shirt-foal.cyclic.app/hotels/countByType"
+    `${import.meta.env.VITE_API_URL}/hotels/countByType`
   );
 
   const images = [

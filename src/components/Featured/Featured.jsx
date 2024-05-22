@@ -5,7 +5,9 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "https://joyous-shirt-foal.cyclic.app/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro"
+    `${
+      import.meta.env.VITE_API_URL
+    }/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro`
   );
 
   return (

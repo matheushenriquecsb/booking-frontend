@@ -18,7 +18,7 @@ const List = () => {
   const [options] = useState(location.state.options);
 
   const { data, error, loading } = useFetch(
-    `https://joyous-shirt-foal.cyclic.app/hotels?city=${destination}`
+    `${import.meta.env.VITE_API_URL}/hotels?city=${destination}`
   );
 
   return (

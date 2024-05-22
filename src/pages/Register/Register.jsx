@@ -21,10 +21,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post(
-        "https://joyous-shirt-foal.cyclic.app/auth/register", 
-        formData
-      );
+      await axios.post(`${import.meta.env.VITE_API_URL}`, formData);
       setLoading(false);
       navigate("/signin");
     } catch (error) {

@@ -27,7 +27,7 @@ export default function SignIn() {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://joyous-shirt-foal.cyclic.app/auth/login",
+        `${import.meta.env.VITE_API_URL}/auth/login`,
         formData
       );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
