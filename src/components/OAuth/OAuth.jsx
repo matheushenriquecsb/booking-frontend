@@ -22,7 +22,7 @@ export default function OAuth() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/auth/login-google`,
+        `https://booking-api.adaptable.app/auth/login-google`,
         {
           email: result.user.email,
         }
@@ -41,7 +41,7 @@ export default function OAuth() {
       const provider = new GithubAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/auth/login-github`,
+        `https://booking-api.adaptable.app/auth/login-github`,
         {
           fullName: result.user.displayName,
         }

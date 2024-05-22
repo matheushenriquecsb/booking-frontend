@@ -5,9 +5,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    `${
-      import.meta.env.VITE_API_URL
-    }/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro`
+    `https://booking-api.adaptable.app/hotels/countByCity?cities=Salvador,Gramado,Rio de Janeiro`
   );
 
   return (

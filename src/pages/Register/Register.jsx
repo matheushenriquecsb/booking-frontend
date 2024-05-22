@@ -21,7 +21,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post(`${import.meta.env.VITE_API_URL}`, formData);
+      await axios.post(`https://booking-api.adaptable.app`, formData);
       setLoading(false);
       navigate("/signin");
     } catch (error) {
