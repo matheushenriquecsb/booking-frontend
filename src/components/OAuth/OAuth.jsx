@@ -22,7 +22,7 @@ export default function OAuth() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const res = await axios.post(
-        "https://joyous-shirt-foal.cyclic.app/auth/login-google",
+        `${import.meta.env.VITE_API_URL}/auth/login-google`,
         {
           email: result.user.email,
         }
@@ -41,7 +41,7 @@ export default function OAuth() {
       const provider = new GithubAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const res = await axios.post(
-        "https://joyous-shirt-foal.cyclic.app/auth/login-github",
+        `${import.meta.env.VITE_API_URL}/auth/login-github`,
         {
           fullName: result.user.displayName,
         }
