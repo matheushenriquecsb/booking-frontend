@@ -51,6 +51,7 @@ export default function SignIn() {
           />
           <h4>Email</h4>
           <Input
+            autoComplete="off"
             size="large"
             type="text"
             id="email"

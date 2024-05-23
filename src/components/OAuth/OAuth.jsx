@@ -5,10 +5,11 @@ import {
   getAuth,
   signInWithPopup,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { app } from "../../hooks/firebase";
-import "./oauth.css";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+import "./oauth.css";
+import { app } from "../../hooks/firebase";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function OAuth() {

@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 
+import Loading from "../../components/Loading/Loading";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import MailList from "../../components/MailList/MailList";
@@ -16,7 +17,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import { SearchContext } from "../../context/SearchContext";
 import useFetch from "../../hooks/useFetch";
 import "./hotel.css";
-import { LoadingOutlined } from "@ant-design/icons";
 
 const Hotel = () => {
   const location = useLocation();
@@ -60,7 +60,7 @@ const Hotel = () => {
       <Navbar />
       <Header type="list" />
       {loading ? (
-        <LoadingOutlined />
+        <Loading />
       ) : (
         <div className="hotelContainer">
           {open && (
@@ -90,7 +90,9 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve agora!</button>
+            <button className="bookNow" id="bookNow">
+              Reserve agora!
+            </button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
