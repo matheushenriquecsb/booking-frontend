@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { LoadingOutlined } from "@ant-design/icons";
 import useFetch from "../../hooks/useFetch";
 import "./featured.css";
+import Loading from "../Loading/Loading";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
@@ -11,7 +11,7 @@ const Featured = () => {
   return (
     <div className="featured">
       {loading ? (
-        <LoadingOutlined />
+        <Loading />
       ) : (
         <>
           <div className="featuredItem">

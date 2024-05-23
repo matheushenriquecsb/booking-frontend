@@ -10,6 +10,8 @@ const MailList = () => {
 
       <div className="mailInputContainer">
         <input
+          name="email"
+          autoComplete="off"
           type="text"
           placeholder="Seu Email:"
           className="mailInput"

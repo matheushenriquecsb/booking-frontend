@@ -47,6 +47,7 @@ export default function SignIn() {
         <form onSubmit={handleSubmit} className="inputContainer">
           <h4>Email</h4>
           <Input
+            autoComplete="off"
             placeholder="Insira seu email"
             type="text"
             id="email"

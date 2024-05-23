@@ -1,6 +1,6 @@
-import { LoadingOutlined } from "@ant-design/icons";
 import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css";
+import Loading from "../Loading/Loading";
 
 const FeaturedProperties = () => {
   const { data, loading } = useFetch(
@@ -10,7 +10,7 @@ const FeaturedProperties = () => {
   return (
     <div className="fp">
       {loading ? (
-        <LoadingOutlined />
+        <Loading />
       ) : (
         <>
           {data.map((item) => (
