@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import "./navbar.css";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { Container, Logo, NavbarButton, NavbarContainer } from "./styles.jsx";
 
 const Navbar = () => {
   const { user, dispatch } = useContext(AuthContext);
@@ -12,28 +12,28 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
-      <div className="navbarContainer">
+    <Container>
+      <NavbarContainer>
         <Link to="/">
-          <span className="logo">Booking.com</span>
+          <Logo>Booking.com</Logo>
         </Link>
         {user ? (
           <Link onClick={handleLogout} to="/">
-            <button className="navbarButton">Logout</button>
+            <NavbarButton>Logout</NavbarButton>
           </Link>
         ) : (
-          <div className="navbarItems">
+          <div>
             <QuestionCircleOutlined style={{ fontSize: "18px" }} />
             <Link to="/signup">
-              <button className="navbarButton">Cadastre-se</button>
+              <NavbarButton>Cadastre-se</NavbarButton>
             </Link>
             <Link to="/signin">
-              <button className="navbarButton">Entre</button>
+              <NavbarButton>Entre</NavbarButton>
             </Link>
           </div>
         )}
-      </div>
-    </div>
+      </NavbarContainer>
+    </Container>
   );
 };
 

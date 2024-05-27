@@ -1,24 +1,28 @@
-import "./mailList.css";
+import {
+  Container,
+  MailInputContainer,
+  MailSubTitle,
+  MailTitle,
+} from "./styles";
 
 const MailList = () => {
   return (
-    <div className="mail">
-      <h1 className="mailTitle">Economize tempo, economize dinheiro!</h1>
-      <span className="mailSubTitle">
+    <Container>
+      <MailTitle>Economize tempo, economize dinheiro!</MailTitle>
+      <MailSubTitle>
         Inscreva-se e enviaremos as melhores ofertas para você
-      </span>
+      </MailSubTitle>
 
-      <div className="mailInputContainer">
+      <MailInputContainer>
         <input
           name="email"
           autoComplete="off"
           type="text"
           placeholder="Seu Email:"
-          className="mailInput"
-        ></input>
-        <button className="mailButton">Inscreva-se</button>
-      </div>
-    </div>
+        />
+        <button>Inscreva-se</button>
+      </MailInputContainer>
+    </Container>
   );
 };
 

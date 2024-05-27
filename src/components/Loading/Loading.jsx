@@ -1,11 +1,10 @@
-import { LoadingOutlined } from "@ant-design/icons";
-import "./loading.css";
+import { Container, LoadingIcon } from "./styles";
 
 const Loading = () => {
   return (
-    <div className="loading-container">
-      <LoadingOutlined className="loading-icon" />
-    </div>
+    <Container>
+      <LoadingIcon />
+    </Container>
   );
 };
 export default Loading;

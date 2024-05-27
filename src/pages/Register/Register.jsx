@@ -1,11 +1,21 @@
 import { InfoCircleOutlined, LoadingOutlined } from "@ant-design/icons";
-import { Input, Tooltip } from "antd";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Tooltip } from "antd";
 import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Navbar from "../../components/Navbar/Navbar";
-import "./register.css";
+import "./styles.jsx";
+import {
+  FormButton,
+  FormContainer,
+  FormLink,
+  FormText,
+  FormTitle,
+  InputContainer,
+  InputLabel,
+  PasswordInput,
+} from "./styles.jsx";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -33,15 +43,14 @@ export default function SignIn() {
   return (
     <div>
       <Navbar />
-      <div className="formContainer">
-        <h1 className="formTitle">crie sua conta</h1>
-        <form onSubmit={handleSubmit} className="inputContainer">
+      <FormContainer>
+        <FormTitle>crie sua conta</FormTitle>
+        <InputContainer onSubmit={handleSubmit}>
           <h4>Nome</h4>
-          <Input
+          <InputLabel
             placeholder="Insira seu nome"
             type="text"
             id="fullName"
-            className="inputUsername"
             suffix={
               <Tooltip title="No máximo 50 caracteres">
                 <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
@@ -50,38 +59,36 @@ export default function SignIn() {
             onChange={handleChange}
           />
           <h4>Email</h4>
-          <Input
+          <InputLabel
             autoComplete="off"
             size="large"
             type="text"
             id="email"
             placeholder="Insira seu email"
-            className="inputEmail"
             onChange={handleChange}
           />
           <h4>Senha</h4>
-          <Input.Password
+          <PasswordInput
             type="text"
             id="password"
             placeholder="Insira sua senha"
-            className="inputPassword"
             onChange={handleChange}
             visibilityToggle={{
               visible: passwordVisible,
               onVisibleChange: setPasswordVisible,
             }}
           />
-          <button className="formButton">
+          <FormButton>
             {loading ? <LoadingOutlined /> : "Cadastre-se"}
-          </button>
-        </form>
-        <div className="formText">
+          </FormButton>
+        </InputContainer>
+        <FormText>
           <p>Já possui conta?</p>
-          <Link className="formLink" to="/signin">
+          <FormLink to="/signin">
             <span>Login</span>
-          </Link>
-        </div>
-      </div>
+          </FormLink>
+        </FormText>
+      </FormContainer>
     </div>
   );
 }

@@ -16,7 +16,25 @@ import MailList from "../../components/MailList/MailList";
 import Navbar from "../../components/Navbar/Navbar";
 import { SearchContext } from "../../context/SearchContext";
 import useFetch from "../../hooks/useFetch";
-import "./hotel.css";
+import {
+  Container,
+  HotelDetails,
+  DetailsTexts,
+  Description,
+  DetailsPrice,
+  HotelImages,
+  ImgWrapper,
+  HotelImg,
+  HotelWrapper,
+  BookNow,
+  Title,
+  Address,
+  Distance,
+  SliderWrapper,
+  PriceHighlight,
+  Slider,
+  Close,
+} from "./styles.jsx";
 
 const Hotel = () => {
   const location = useLocation();
@@ -25,7 +43,7 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const { dates } = useContext(SearchContext);
 
-  const { data, error, loading } = useFetch(
+  const { data, loading } = useFetch(
     `https://booking-api.adaptable.app/hotels/find/${id}`
   );
 
@@ -62,9 +80,9 @@ const Hotel = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="hotelContainer">
+        <Container>
           {open && (
-            <div className="slider">
+            <Slider>
               <FontAwesomeIcon
                 icon={faCircleXmark}
                 className="close"
@@ -75,53 +93,46 @@ const Hotel = () => {
                 className="arrow"
                 onClick={() => handleMove("l")}
               />
-              <div className="sliderWrapper">
-                <img
-                  src={data.photos[slideNumber]?.src}
-                  alt=""
-                  className="sliderImg"
-                />
-              </div>
+              <SliderWrapper>
+                <img src={data.photos[slideNumber]?.src} alt="Hotel Image" />
+              </SliderWrapper>
               <FontAwesomeIcon
                 icon={faCircleArrowRight}
                 className="arrow"
                 onClick={() => handleMove("r")}
               />
-            </div>
+            </Slider>
           )}
-          <div className="hotelWrapper">
-            <button className="bookNow" id="bookNow">
-              Reserve agora!
-            </button>
-            <h1 className="hotelTitle">{data.name}</h1>
-            <div className="hotelAddress">
+          <HotelWrapper>
+            <BookNow id="bookNow">Reserve agora!</BookNow>
+            <Title>{data.name}</Title>
+            <Address>
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
-            </div>
-            <span className="hotelDistance">
+            </Address>
+            <Distance>
               Excelente localização – {data.distance}m do centro
-            </span>
-            <span className="hotelPriceHighlight">
+            </Distance>
+            <PriceHighlight>
               Reserve uma estadia acima de R$ {data.cheapestPrice} nesta
               propriedade e ganhe um táxi gratuito do aeroporto
-            </span>
-            <div className="hotelImages">
+            </PriceHighlight>
+            <HotelImages>
               {data.photos?.map((photo, i) => (
-                <div className="hotelImgWrapper" key={i}>
-                  <img
+                <ImgWrapper key={i}>
+                  <HotelImg
                     onClick={() => handleOpen(i)}
                     src={photo}
-                    alt=""
-                    className="hotelImg"
+                    alt="Hotel Image"
                   />
-                </div>
+                </ImgWrapper>
               ))}
-            </div>
-            <div className="hotelDetails">
-              <div className="hotelDetailsTexts">
-                <p className="hotelDesc">{data.desc}</p>
-              </div>
-              <div className="hotelDetailsPrice">
+            </HotelImages>
+            <HotelDetails>
+              <DetailsTexts>
+                <Description>{data.desc}</Description>
+              </DetailsTexts>
+              <DetailsPrice>
                 <h1>Perfeito para uma estadia de {days} noites!</h1>
                 <span>
                   Localizada no verdadeiro coração da cidade, esta propriedade
@@ -132,12 +143,12 @@ const Hotel = () => {
                   <b>R$ {days * data.cheapestPrice}</b> ({days} noites)
                 </h2>
                 <button>Reserve agora!</button>
-              </div>
-            </div>
-          </div>
+              </DetailsPrice>
+            </HotelDetails>
+          </HotelWrapper>
           <MailList />
           <Footer />
-        </div>
+        </Container>
       )}
     </div>
   );

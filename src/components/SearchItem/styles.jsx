@@ -1,4 +1,6 @@
-.searchItem {
+import styled from "styled-components";
+
+export const SearchContainer = styled.div`
   border: 1px solid lightgray;
   padding: 10px;
   border-radius: 5px;
@@ -6,101 +8,102 @@
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 20px;
-}
+`;
 
-.siImg {
+export const Image = styled.img`
   width: 200px;
   height: 200px;
   object-fit: cover;
   cursor: pointer;
-}
+`;
 
-.siDesc {
+export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
   flex: 2;
-}
+`;
 
-.siTitle {
+export const Title = styled.h1`
   font-size: 20px;
   color: #0071c2;
-}
+`;
 
-.siDistance {
+export const Distance = styled.span`
   font-size: 12px;
-}
+`;
 
-.siTaxiOp {
+export const Taxi = styled.span`
   font-size: 12px;
   background-color: #008009;
   color: white;
   width: max-content;
   padding: 3px;
   border-radius: 5px;
-}
+`;
 
-.siSubtitle {
+export const Subtitle = styled.span`
   font-size: 12px;
   font-weight: bold;
-}
+`;
 
-.siFeatures {
+export const Features = styled.span`
   font-size: 12px;
-}
+`;
 
-.siCancelOp {
+export const Cancel = styled.span`
   font-size: 12px;
   color: #008009;
   font-weight: bold;
-}
+`;
 
-.siCancelOpSubtitle {
+export const CancelSubtitle = styled.span`
   font-size: 12px;
   color: #008009;
-}
+`;
 
-.siDetails {
+export const Details = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+`;
 
-.siRating {
+export const Rating = styled.div`
   display: flex;
   justify-content: space-between;
   margin-left: 70px;
-}
 
-.siRating > span {
-  font-weight: 500;
-}
-.siRating > button {
-  background-color: #003580;
-  color: white;
-  padding: 2px;
-  font-weight: bold;
-  border: none;
-}
+  & > span {
+    font-weight: 500;
+  }
 
-.siDetailTexts {
+  & > button {
+    background-color: #003580;
+    color: white;
+    padding: 2px;
+    font-weight: bold;
+    border: none;
+  }
+`;
+
+export const DetailTexts = styled.div`
   text-align: right;
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
+`;
 
-.siPrice {
+export const Price = styled.span`
   font-size: 24px;
-}
+`;
 
-.siTaxOp {
+export const TaxOp = styled.span`
   font-size: 12px;
   color: gray;
-}
+`;
 
-.siCheckButton {
+export const CheckButton = styled.button`
   background-color: #0071c2;
   color: white;
   font-weight: bold;
@@ -108,4 +111,4 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
-}
+`;

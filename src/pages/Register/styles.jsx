@@ -1,48 +1,46 @@
-.signinContainer {
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { Input } from "antd";
+
+export const FormContainer = styled.div`
   padding: 0.75rem;
   max-width: 32rem;
   margin-left: auto;
   margin-top: 10px;
   margin-right: auto;
-}
+`;
 
-.signinTitle {
+export const FormTitle = styled.h1`
   font-size: 1.875rem;
   text-align: center;
   font-weight: 600;
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
-}
+`;
 
-.inputContainer {
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
 
-.inputContainer h4 {
-  font-weight: 500;
-}
+  h4 {
+    font-weight: 500;
+  }
+`;
 
-.inputUsername {
+export const InputLabel = styled(Input)`
   background-color: #f8fafc;
   border-radius: 0.5rem;
   padding: 0.75rem;
-}
+`;
 
-.inputEmail {
+export const PasswordInput = styled(Input.Password)`
   background-color: #f8fafc;
   border-radius: 0.5rem;
   padding: 0.75rem;
-}
+`;
 
-.inputPassword {
-  background-color: #f8fafc;
-  border-radius: 0.5rem;
-  padding: 0.75rem;
-}
-
-.signinButton {
+export const FormButton = styled.button`
   background-color: #003580;
   border: none;
   color: #ffffff;
@@ -54,20 +52,21 @@
   font-size: 15px;
   font-weight: 500;
   height: 50px;
-  :hover {
-    opacity: 0.95;
-  }
   cursor: pointer;
   opacity: 0.8;
-}
 
-.signupContainer {
+  &:hover {
+    opacity: 0.95;
+  }
+`;
+
+export const FormText = styled.div`
   display: flex;
   gap: 0.5rem;
   margin-top: 1.25rem;
-}
+`;
 
-.signupLink {
+export const FormLink = styled(Link)`
   color: #129ae9;
   text-decoration: none;
-}
+`;

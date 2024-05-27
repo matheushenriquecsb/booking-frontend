@@ -1,12 +1,14 @@
-.navbar {
+import styled from "styled-components";
+
+export const Container = styled.div`
   height: 50px;
   background-color: #003580;
   display: flex;
   padding: 20px;
   justify-content: center;
-}
+`;
 
-.navbarContainer {
+export const NavbarContainer = styled.div`
   width: 100%;
   max-width: 1024px;
   color: white;
@@ -14,26 +16,21 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
-}
 
-.navbarContainer a {
-  text-decoration: none;
-  color: white;
-}
+  a {
+    text-decoration: none;
+    color: white;
+  }
+`;
 
-.logo {
+export const Logo = styled.span`
   font-size: 25px;
   font-weight: 700;
   font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica,
     Arial, sans-serif;
-}
+`;
 
-.navbarButton {
-  font-weight: 600;
-  font-weight: 500;
-}
-
-.navbarButton {
+export const NavbarButton = styled.button`
   font-size: 17px;
   font-weight: 700;
   align-items: center;
@@ -44,4 +41,4 @@
   padding: 5px 10px;
   cursor: pointer;
   color: #003580;
-}
+`;

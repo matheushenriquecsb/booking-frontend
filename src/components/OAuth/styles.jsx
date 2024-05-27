@@ -1,4 +1,7 @@
-.loginGoogle {
+import styled from "styled-components";
+
+// Styled Components
+export const LoginGoogleButton = styled.button`
   width: 510px;
   background-color: #e53e3e;
   border: none;
@@ -8,36 +11,35 @@
   margin-top: 10px;
   margin-bottom: 10px;
   text-transform: uppercase;
-}
+`;
 
-.loginGithub {
-  background-color: rgba(43, 42, 42, 0.781);
+export const LoginGithubButton = styled.button`
   width: 510px;
+  background-color: rgba(43, 42, 42, 0.781);
   border: none;
   color: #fff;
   border-radius: 0.75rem;
   padding: 0.75rem;
   text-transform: uppercase;
-}
+`;
 
-.separator {
+export const Separator = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
   color: #8b8e98;
-}
+`;
 
-.separator .line {
+export const Line = styled.span`
   display: block;
   width: 100%;
   height: 1px;
-  border: 0;
   background-color: #e8e8e8;
-}
+`;
 
-.socialMedia {
+export const SocialMedia = styled.div`
   margin-top: 10px;
   border-radius: 10px;
   display: flex;
@@ -48,21 +50,21 @@
   background-color: white;
   cursor: pointer;
   transition: 0.2s ease-in-out;
-}
 
-.mediaIcon {
+  button {
+    background-color: white;
+    border: 1px solid rgba(214, 210, 210, 0.993);
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid #2d79f3;
+    }
+  }
+`;
+
+export const MediaIcon = styled.img`
   width: 40px;
   margin: 20px;
   cursor: pointer;
   border: none;
-}
-
-.socialMedia button {
-  background-color: white;
-  border: 1px solid rgba(214, 210, 210, 0.993);
-  cursor: pointer;
-}
-
-.socialMedia button:hover {
-  border: 1px solid #2d79f3;
-}
+`;

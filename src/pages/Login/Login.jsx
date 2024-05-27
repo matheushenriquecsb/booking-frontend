@@ -1,13 +1,23 @@
 import { InfoCircleOutlined, LoadingOutlined } from "@ant-design/icons";
-import { Input, Tooltip } from "antd";
+import { Tooltip } from "antd";
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "../../components/Navbar/Navbar";
 import OAuth from "../../components/OAuth/OAuth";
 import { AuthContext } from "../../context/AuthContext";
-import "./login.css";
+import "./styles.jsx";
+import {
+  Container,
+  FormLink,
+  InputContainer,
+  InputEmail,
+  InputPassword,
+  SigninButton,
+  SignupContainer,
+  Title,
+} from "./styles.jsx";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -42,16 +52,15 @@ export default function SignIn() {
   return (
     <div>
       <Navbar />
-      <div className="signinContainer">
-        <h1 className="signinTitle">faça o login</h1>
-        <form onSubmit={handleSubmit} className="inputContainer">
+      <Container>
+        <Title>faça o login</Title>
+        <InputContainer onSubmit={handleSubmit}>
           <h4>Email</h4>
-          <Input
+          <InputEmail
             autoComplete="off"
             placeholder="Insira seu email"
             type="text"
             id="email"
-            className="inputUsername"
             suffix={
               <Tooltip title="No máximo 8 caracteres">
                 <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
@@ -60,25 +69,22 @@ export default function SignIn() {
             onChange={handleChange}
           />
           <h4>Senha</h4>
-          <Input.Password
+          <InputPassword
             type="text"
             id="password"
             placeholder="Insira sua senha"
-            className="inputPassword"
             onChange={handleChange}
           />
-          <button className="signinButton">
-            {loading ? <LoadingOutlined /> : "login"}
-          </button>
+          <SigninButton>{loading ? <LoadingOutlined /> : "login"}</SigninButton>
           <OAuth />
-        </form>
-        <div className="signupContainer">
+        </InputContainer>
+        <SignupContainer>
           <p>Ainda não possui conta?</p>
-          <Link className="signupLink" to="/signup">
+          <FormLink to="/signup">
             <span>Cadastre-se</span>
-          </Link>
-        </div>
-      </div>
+          </FormLink>
+        </SignupContainer>
+      </Container>
     </div>
   );
 }
