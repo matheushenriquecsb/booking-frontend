@@ -1,6 +1,15 @@
 import useFetch from "../../hooks/useFetch";
-import "./featuredProperties.css";
 import Loading from "../Loading/Loading";
+import {
+  PropertyAvaliation,
+  PropertyCity,
+  Container,
+  PropertyImg,
+  Property,
+  PropertyName,
+  PropertyPrice,
+  PropertyRating,
+} from "./styles";
 
 const FeaturedProperties = () => {
   const { data, loading } = useFetch(
@@ -8,31 +17,31 @@ const FeaturedProperties = () => {
   );
 
   return (
-    <div className="fp">
+    <Container>
       {loading ? (
         <Loading />
       ) : (
         <>
           {data.map((item) => (
-            <div className="fpItem" key={item._id}>
-              <img src={item.photos[0]} alt="Image Hotel" className="fpImg" />
-              <span className="fpName">{item.name}</span>
-              <span className="fpCity">{item.city}</span>
-              <span className="fpPrice">
+            <Property key={item._id}>
+              <PropertyImg src={item.photos[0]} alt="Image Hotel" />
+              <PropertyName>{item.name}</PropertyName>
+              <PropertyCity>{item.city}</PropertyCity>
+              <PropertyPrice>
                 A partir de <b>${item.cheapestPrice}</b>
-              </span>
+              </PropertyPrice>
               {item.rating && (
-                <div className="fpRating">
+                <PropertyRating>
                   <button>{item.rating}</button>
                   <span>Excelente</span>
-                  <span className="fpAvaliation">72 Avaliações</span>
-                </div>
+                  <PropertyAvaliation>72 Avaliações</PropertyAvaliation>
+                </PropertyRating>
               )}
-            </div>
+            </Property>
           ))}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

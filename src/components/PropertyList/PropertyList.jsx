@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import useFetch from "../../hooks/useFetch";
-import "./propertyList.css";
 import Loading from "../Loading/Loading";
+import { Container, ListItem, ListImg, ListTitles } from "./styles.jsx";
 
 const PropertyList = () => {
   const { data, loading } = useFetch(
@@ -17,26 +17,26 @@ const PropertyList = () => {
   ];
 
   return (
-    <div className="pList">
+    <Container>
       {loading ? (
         <Loading />
       ) : (
         <>
           {data &&
             images.map((img, i) => (
-              <div className="pListItem" key={i}>
-                <img src={img} alt="" className="pListImg" />
-                <div className="pListTitles">
+              <ListItem key={i}>
+                <ListImg src={img} alt="images" />
+                <ListTitles>
                   <h1>{data[i]?.type}</h1>
                   <h2>
                     {data[i]?.count} {data[i]?.type}
                   </h2>
-                </div>
-              </div>
+                </ListTitles>
+              </ListItem>
             ))}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

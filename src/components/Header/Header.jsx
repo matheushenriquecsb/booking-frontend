@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./header.css";
 import {
   faBed,
   faCalendarDays,
@@ -9,14 +7,33 @@ import {
   faPlane,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
-import { DateRange } from "react-date-range";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { format } from "date-fns";
+import { useContext, useState } from "react";
+import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
+import { SearchContext } from "../../context/SearchContext";
+import {
+  Container,
+  DatePicker,
+  HeaderButton,
+  HeaderDescription,
+  HeaderIcon,
+  HeaderList,
+  HeaderListItem,
+  HeaderSearch,
+  HeaderSearchInput,
+  HeaderSearchItem,
+  HeaderSearchText,
+  OptionCounter,
+  OptionCounterButton,
+  OptionItem,
+  Options,
+  HeaderContainer,
+} from "./styles.jsx";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -57,162 +74,148 @@ const Header = ({ type }) => {
   };
 
   return (
-    <div className="header">
-      <div
-        className={
-          type === "list" ? "headerContainer listMode" : "headerContainer"
-        }
-      >
-        <div className="headerList">
-          <div className="headerListItem active">
+    <Container>
+      <HeaderContainer type={type}>
+        <HeaderList>
+          <HeaderListItem>
             <FontAwesomeIcon icon={faBed} />
             <span>Hospedagens</span>
-          </div>
-          <div className="headerListItem">
+          </HeaderListItem>
+          <HeaderListItem>
             <FontAwesomeIcon icon={faPlane} />
             <span>Voos</span>
-          </div>
-          <div className="headerListItem">
+          </HeaderListItem>
+          <HeaderListItem>
             <FontAwesomeIcon icon={faCar} />
             <span>Aluguel de Carros</span>
-          </div>
-          <div className="headerListItem">
+          </HeaderListItem>
+          <HeaderListItem>
             <FontAwesomeIcon icon={faBed} />
             <span>Atrações</span>
-          </div>
-          <div className="headerListItem">
+          </HeaderListItem>
+          <HeaderListItem>
             <FontAwesomeIcon icon={faTaxi} />
             <span>Taxis</span>
-          </div>
-        </div>
+          </HeaderListItem>
+        </HeaderList>
         {type !== "list" && (
           <>
-            <h1 className="headerTitle">Encontre sua próxima estadia</h1>
-            <p className="headerDescription">
+            <h1>Encontre sua próxima estadia</h1>
+            <HeaderDescription>
               Encontre ofertas em hotéis, casas, apartamentos e muito mais...
-            </p>
+            </HeaderDescription>
             {!user && (
               <Link to="signup">
-                <button className="headerButton">Cadastre-se / Entre</button>
+                <HeaderButton>Cadastre-se / Entre</HeaderButton>
               </Link>
             )}
-            <div className="headerSearch">
-              <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
-                <input
+            <HeaderSearch>
+              <HeaderSearchItem>
+                <HeaderIcon>
+                  <FontAwesomeIcon icon={faBed} />
+                </HeaderIcon>
+
+                <HeaderSearchInput
                   id="city"
                   type="text"
                   placeholder="Para onde você vai?"
-                  className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
                 />
-              </div>
-              <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
-                <span
+              </HeaderSearchItem>
+              <HeaderSearchItem>
+                <HeaderIcon>
+                  <FontAwesomeIcon icon={faCalendarDays} />
+                </HeaderIcon>
+
+                <HeaderSearchText
                   onClick={() => setOpenDate(!openDate)}
-                  className="headerSearchText"
                 >{`${format(dates[0].startDate, "dd/MM/yyyy")} até ${format(
                   dates[0].endDate,
                   "dd/MM/yyyy"
-                )}`}</span>
+                )}`}</HeaderSearchText>
                 {openDate && (
-                  <DateRange
-                    editableDateInputs={true}
-                    onChange={(item) => setDates([item.selection])}
-                    moveRangeOnFirstSelection={false}
-                    ranges={dates}
-                    className="date"
-                    minDate={new Date()}
-                  />
+                  <DatePicker>
+                    <DateRange
+                      editableDateInputs={true}
+                      onChange={(item) => setDates([item.selection])}
+                      moveRangeOnFirstSelection={false}
+                      ranges={dates}
+                      minDate={new Date()}
+                    />
+                  </DatePicker>
                 )}
-              </div>
-              <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faPerson} className="headerIcon" />
-                <span
-                  className="headerSearchText"
-                  onClick={() => setOpenOptions(!openOptions)}
-                >
+              </HeaderSearchItem>
+              <HeaderSearchItem>
+                <HeaderIcon>
+                  <FontAwesomeIcon icon={faPerson} />
+                </HeaderIcon>
+                <HeaderSearchText onClick={() => setOpenOptions(!openOptions)}>
                   {`${options.adult} adultos · ${options.children} crianças · ${options.room} quartos`}
-                </span>
+                </HeaderSearchText>
                 {openOptions && (
-                  <div className="options">
-                    <div className="optionItem">
-                      <span className="optionText">Adulto</span>
-                      <div className="optionCounter">
-                        <button
+                  <Options>
+                    <OptionItem>
+                      <span>Adulto</span>
+                      <OptionCounter>
+                        <OptionCounterButton
                           disabled={options.adult <= 1}
-                          className="optionCounterButton"
                           onClick={() => handleOption("adult", "d")}
                         >
                           -
-                        </button>
-                        <span className="optionCounterNumber">
-                          {options.adult}
-                        </span>
-                        <button
-                          className="optionCounterButton"
+                        </OptionCounterButton>
+                        <span>{options.adult}</span>
+                        <OptionCounterButton
                           onClick={() => handleOption("adult", "i")}
                         >
                           +
-                        </button>
-                      </div>
-                    </div>
-                    <div className="optionItem">
-                      <span className="optionText">Criança</span>
-                      <div className="optionCounter">
-                        <button
+                        </OptionCounterButton>
+                      </OptionCounter>
+                    </OptionItem>
+                    <OptionItem>
+                      <span>Criança</span>
+                      <OptionCounter>
+                        <OptionCounterButton
                           disabled={options.children <= 0}
-                          className="optionCounterButton"
                           onClick={() => handleOption("children", "d")}
                         >
                           -
-                        </button>
-                        <span className="optionCounterNumber">
-                          {options.children}
-                        </span>
-                        <button
-                          className="optionCounterButton"
+                        </OptionCounterButton>
+                        <span>{options.children}</span>
+                        <OptionCounterButton
                           onClick={() => handleOption("children", "i")}
                         >
                           +
-                        </button>
-                      </div>
-                    </div>
-                    <div className="optionItem">
-                      <span className="optionText">Quartos</span>
-                      <div className="optionCounter">
-                        <button
+                        </OptionCounterButton>
+                      </OptionCounter>
+                    </OptionItem>
+                    <OptionItem>
+                      <span>Quartos</span>
+                      <OptionCounter>
+                        <OptionCounterButton
                           disabled={options.room <= 1}
-                          className="optionCounterButton"
                           onClick={() => handleOption("room", "d")}
                         >
                           -
-                        </button>
-                        <span className="optionCounterNumber">
-                          {options.room}
-                        </span>
-                        <button
-                          className="optionCounterButton"
+                        </OptionCounterButton>
+                        <span>{options.room}</span>
+                        <OptionCounterButton
                           onClick={() => handleOption("room", "i")}
                         >
                           +
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                        </OptionCounterButton>
+                      </OptionCounter>
+                    </OptionItem>
+                  </Options>
                 )}
-              </div>
-              <div className="headerSearchItem">
-                <button className="headerButton" onClick={handleSearch}>
-                  Pesquisar
-                </button>
-              </div>
-            </div>
+              </HeaderSearchItem>
+              <HeaderSearchItem>
+                <HeaderButton onClick={handleSearch}>Pesquisar</HeaderButton>
+              </HeaderSearchItem>
+            </HeaderSearch>
           </>
         )}
-      </div>
-    </div>
+      </HeaderContainer>
+    </Container>
   );
 };
 

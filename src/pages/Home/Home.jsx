@@ -5,23 +5,23 @@ import Header from "../../components/Header/Header";
 import MailList from "../../components/MailList/MailList";
 import Navbar from "../../components/Navbar/Navbar";
 import PropertyList from "../../components/PropertyList/PropertyList";
-import "./home.css";
+import { Container, HomeSubtitles } from "./styles.jsx";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
       <Header />
-      <div className="homeContainer">
-        <h1 className="homeTitle">Destinos mais procurados</h1>
+      <Container>
+        <HomeSubtitles>Destinos mais procurados</HomeSubtitles>
         <Featured />
-        <h1 className="homeTitle">Procure sua melhor acomodação</h1>
+        <HomeSubtitles>Procure sua melhor acomodação</HomeSubtitles>
         <PropertyList />
-        <h1 className="homeTitle">Casas e apartamentos que os hóspedes amam</h1>
+        <HomeSubtitles>Casas e apartamentos que os hóspedes amam</HomeSubtitles>
         <FeaturedProperties />
         <MailList />
         <Footer />
-      </div>
+      </Container>
     </div>
   );
 };

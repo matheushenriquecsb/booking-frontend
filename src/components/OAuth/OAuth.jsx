@@ -8,9 +8,9 @@ import {
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "./oauth.css";
-import { app } from "../../hooks/firebase";
 import { AuthContext } from "../../context/AuthContext";
+import { app } from "../../hooks/firebase";
+import { Line, MediaIcon, Separator, SocialMedia } from "./styles";
 
 export default function OAuth() {
   const navigate = useNavigate();
@@ -57,27 +57,25 @@ export default function OAuth() {
 
   return (
     <div>
-      <div className="separator">
-        <hr className="line" />
+      <Separator>
+        <Line />
         <span>Ou</span>
-        <hr className="line" />
-      </div>
-      <div className="socialMedia">
+        <Line />
+      </Separator>
+      <SocialMedia>
         <button type="button" onClick={handleGoogleClick}>
-          <img
+          <MediaIcon
             src="https://www.svgrepo.com/show/475656/google-color.svg"
             alt="google-icon"
-            className="mediaIcon"
           />
         </button>
         <button type="button" onClick={handleGithubClick}>
-          <img
+          <MediaIcon
             src="https://www.svgrepo.com/show/473620/github.svg"
             alt="github-icon"
-            className="mediaIcon"
           />
         </button>
-      </div>
+      </SocialMedia>
     </div>
   );
 }
