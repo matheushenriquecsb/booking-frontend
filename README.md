@@ -1,5 +1,11 @@
 ## Booking Website 
 
+[![Generic badge](https://img.shields.io/badge/WEBSITE-CLICK-HERE.svg)](https://booking-rent.netlify.app/)
+
+Application consists in reservation system hotel with a login and register system. Once logged in, you can choose the city and date and perform the search.
+
+
+
 ### Tech Stacks
 
 [![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)](https://pt-br.reactjs.org)
