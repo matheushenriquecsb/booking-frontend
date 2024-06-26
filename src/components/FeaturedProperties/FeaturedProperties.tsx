@@ -12,7 +12,7 @@ import {
 } from "./styles";
 
 const FeaturedProperties = () => {
-  const { data, loading } = useFetch(
+  const { data, loading }: any = useFetch(
     `https://booking-api.adaptable.app/hotels/featured?featured=true&limit=4`
   );
 
@@ -22,7 +22,7 @@ const FeaturedProperties = () => {
         <Loading />
       ) : (
         <>
-          {data.map((item) => (
+          {data.map((item: any) => (
             <Property key={item._id}>
               <PropertyImg src={item.photos[0]} alt="Image Hotel" />
               <PropertyName>{item.name}</PropertyName>

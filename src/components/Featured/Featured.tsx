@@ -1,11 +1,6 @@
 import useFetch from "../../hooks/useFetch";
 import Loading from "../Loading/Loading";
-import {
-  Container,
-  FeaturedImg,
-  FeaturedItem,
-  FeaturedTitle,
-} from "./styles.jsx";
+import { Container, FeaturedImg, FeaturedItem, FeaturedTitle } from "./styles";
 
 const Featured = () => {
   const { data, loading } = useFetch(

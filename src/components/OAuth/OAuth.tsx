@@ -14,7 +14,7 @@ import { Line, MediaIcon, Separator, SocialMedia } from "./styles";
 
 export default function OAuth() {
   const navigate = useNavigate();
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch }: any = useContext(AuthContext);
   const auth = getAuth(app);
 
   const handleGoogleClick = async () => {
@@ -30,7 +30,7 @@ export default function OAuth() {
       );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/");
-    } catch (error) {
+    } catch (error: any) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
       throw new Error(error);
     }
@@ -49,7 +49,7 @@ export default function OAuth() {
       );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/");
-    } catch (error) {
+    } catch (error: any) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
       throw new Error(error);
     }

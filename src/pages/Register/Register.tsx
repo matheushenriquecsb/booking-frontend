@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Navbar from "../../components/Navbar/Navbar";
-import "./styles.jsx";
+import "./styles";
 import {
   FormButton,
   FormContainer,
@@ -15,7 +15,7 @@ import {
   InputContainer,
   InputLabel,
   PasswordInput,
-} from "./styles.jsx";
+} from "./styles";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -23,18 +23,18 @@ export default function SignIn() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
       setLoading(true);
       await axios.post(`https://booking-api.adaptable.app`, formData);
       setLoading(false);
       navigate("/signin");
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
       throw new Error(error);
     }
@@ -53,7 +53,11 @@ export default function SignIn() {
             id="fullName"
             suffix={
               <Tooltip title="No máximo 50 caracteres">
-                <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
+                <InfoCircleOutlined
+                  style={{ color: "rgba(0,0,0,.45)" }}
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
+                />
               </Tooltip>
             }
             onChange={handleChange}
@@ -79,7 +83,14 @@ export default function SignIn() {
             }}
           />
           <FormButton>
-            {loading ? <LoadingOutlined /> : "Cadastre-se"}
+            {loading ? (
+              <LoadingOutlined
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
+            ) : (
+              "Cadastre-se"
+            )}
           </FormButton>
         </InputContainer>
         <FormText>

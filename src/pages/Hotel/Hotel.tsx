@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
@@ -33,22 +32,21 @@ import {
   SliderWrapper,
   PriceHighlight,
   Slider,
-  Close,
-} from "./styles.jsx";
+} from "./styles";
 
 const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const [slideNumber, setSlideNumber] = useState(0);
+  const [slideNumber, setSlideNumber] = useState<any>(0);
   const [open, setOpen] = useState(false);
-  const { dates } = useContext(SearchContext);
+  const { dates }: any = useContext(SearchContext);
 
-  const { data, loading } = useFetch(
+  const { data, loading }: any = useFetch(
     `https://booking-api.adaptable.app/hotels/find/${id}`
   );
 
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
-  function dayDifference(date1, date2) {
+  function dayDifference(date1: any, date2: any) {
     const timeDiff = Math.abs(date2.getTime() - date1.getTime());
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
@@ -56,12 +54,12 @@ const Hotel = () => {
 
   const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
-  const handleOpen = (i) => {
+  const handleOpen = (i: string): any => {
     setSlideNumber(i);
     setOpen(true);
   };
 
-  const handleMove = (direction) => {
+  const handleMove = (direction: string) => {
     let newSlideNumber;
 
     if (direction === "l") {
@@ -118,7 +116,7 @@ const Hotel = () => {
               propriedade e ganhe um táxi gratuito do aeroporto
             </PriceHighlight>
             <HotelImages>
-              {data.photos?.map((photo, i) => (
+              {data.photos?.map((photo: any, i: any) => (
                 <ImgWrapper key={i}>
                   <HotelImg
                     onClick={() => handleOpen(i)}

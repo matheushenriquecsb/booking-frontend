@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import MailList from "../../components/MailList/MailList";
 import Navbar from "../../components/Navbar/Navbar";
 import PropertyList from "../../components/PropertyList/PropertyList";
-import { Container, HomeSubtitles } from "./styles.jsx";
+import { Container, HomeSubtitles } from "./styles";
 
 const Home = () => {
   return (

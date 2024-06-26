@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import useFetch from "../../hooks/useFetch";
 import Loading from "../Loading/Loading";
-import { Container, ListItem, ListImg, ListTitles } from "./styles.jsx";
+import { Container, ListItem, ListImg, ListTitles } from "./styles";
 
 const PropertyList = () => {
-  const { data, loading } = useFetch(
+  const { data, loading }: any = useFetch(
     `https://booking-api.adaptable.app/hotels/countByType`
   );
 

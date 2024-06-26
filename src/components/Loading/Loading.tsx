@@ -3,7 +3,10 @@ import { Container, LoadingIcon } from "./styles";
 const Loading = () => {
   return (
     <Container>
-      <LoadingIcon />
+      <LoadingIcon
+        onPointerEnterCapture={() => {}}
+        onPointerLeaveCapture={() => {}}
+      />
     </Container>
   );
 };

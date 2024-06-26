@@ -33,9 +33,9 @@ import {
   OptionItem,
   Options,
   HeaderContainer,
-} from "./styles.jsx";
+} from "./styles";
 
-const Header = ({ type }) => {
+const Header = ({ type }: any) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -53,7 +53,7 @@ const Header = ({ type }) => {
     room: 1,
   });
 
-  const handleOption = (name, operation) => {
+  const handleOption = (name: string, operation: string) => {
     setOptions((prev) => {
       return {
         ...prev,
@@ -66,7 +66,7 @@ const Header = ({ type }) => {
 
   const { user } = useContext(AuthContext);
 
-  const { dispatch } = useContext(SearchContext);
+  const { dispatch }: any = useContext(SearchContext);
 
   const handleSearch = () => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
