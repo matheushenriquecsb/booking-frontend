@@ -1,15 +1,17 @@
-/* eslint-disable react/prop-types */
 import { createContext, useEffect, useReducer } from "react";
 
+const userFromStorage = localStorage.getItem("user");
+const parsedUser = userFromStorage ? JSON.parse(userFromStorage) : null;
+
 const INITIAL_STATE = {
-  user: JSON.parse(localStorage.getItem("user")) || null,
+  user: parsedUser,
   loading: false,
   error: null,
 };
 
 export const AuthContext = createContext(INITIAL_STATE);
 
-const AuthReducer = (state, action) => {
+const AuthReducer = (state: any, action: { type: any; payload: any }) => {
   switch (action.type) {
     case "LOGIN_START":
       return {
@@ -40,7 +42,7 @@ const AuthReducer = (state, action) => {
   }
 };
 
-export const AuthContextProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
   useEffect(() => {

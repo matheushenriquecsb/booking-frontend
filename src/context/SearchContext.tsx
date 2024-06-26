@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { createContext, useReducer } from "react";
+import React from "react";
 
 const INITIAL_STATE = {
   city: undefined,
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
 
 export const SearchContext = createContext(INITIAL_STATE);
 
-const SearchReducer = (state, action) => {
+const SearchReducer = (state: any, action: { type: any; payload: any }) => {
   switch (action.type) {
     case "NEW_SEARCH":
       return action.payload;
@@ -24,7 +24,7 @@ const SearchReducer = (state, action) => {
   }
 };
 
-export const SearchContextProvider = ({ children }) => {
+export const SearchContextProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(SearchReducer, INITIAL_STATE);
 
   return (

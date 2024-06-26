@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { LoadingOutlined } from "@ant-design/icons";
 import { format } from "date-fns";
 import { useState } from "react";
@@ -17,7 +16,7 @@ import {
   SearchContainer,
   Title,
   Wrapper,
-} from "./styles.jsx";
+} from "./styles";
 
 const List = () => {
   const location = useLocation();
@@ -26,7 +25,7 @@ const List = () => {
   const [openDate, setOpenDate] = useState(false);
   const [options] = useState(location.state.options);
 
-  const { data, loading } = useFetch(
+  const { data, loading }: any = useFetch(
     `https://booking-api.adaptable.app/hotels?city=${destination}`
   );
 
@@ -53,7 +52,7 @@ const List = () => {
               </span>
               {openDate && (
                 <DateRange
-                  onChange={(item) => setDates([item.selection])}
+                  onChange={(item: any) => setDates([item.selection])}
                   minDate={new Date()}
                   ranges={dates}
                 />
@@ -107,10 +106,13 @@ const List = () => {
           </SearchContainer>
           <ListResult>
             {loading ? (
-              <LoadingOutlined />
+              <LoadingOutlined
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
             ) : (
               <>
-                {data.map((item) => (
+                {data.map((item: any) => (
                   <SearchItem item={item} key={item._id} />
                 ))}
               </>

@@ -7,7 +7,6 @@ import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
 import OAuth from "../../components/OAuth/OAuth";
 import { AuthContext } from "../../context/AuthContext";
-import "./styles.jsx";
 import {
   Container,
   FormLink,
@@ -17,21 +16,21 @@ import {
   SigninButton,
   SignupContainer,
   Title,
-} from "./styles.jsx";
+} from "./styles";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch }: any = useContext(AuthContext);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
@@ -43,7 +42,7 @@ export default function SignIn() {
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       setLoading(false);
       navigate("/");
-    } catch (error) {
+    } catch (error: any) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
       throw new Error(error);
     }
@@ -63,7 +62,11 @@ export default function SignIn() {
             id="email"
             suffix={
               <Tooltip title="No máximo 8 caracteres">
-                <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
+                <InfoCircleOutlined
+                  style={{ color: "rgba(0,0,0,.45)" }}
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
+                />
               </Tooltip>
             }
             onChange={handleChange}
@@ -75,7 +78,16 @@ export default function SignIn() {
             placeholder="Insira sua senha"
             onChange={handleChange}
           />
-          <SigninButton>{loading ? <LoadingOutlined /> : "login"}</SigninButton>
+          <SigninButton>
+            {loading ? (
+              <LoadingOutlined
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
+            ) : (
+              "login"
+            )}
+          </SigninButton>
           <OAuth />
         </InputContainer>
         <SignupContainer>

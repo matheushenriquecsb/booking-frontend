@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// Styled Components
 export const LoginGoogleButton = styled.button`
   width: 510px;
   background-color: #e53e3e;

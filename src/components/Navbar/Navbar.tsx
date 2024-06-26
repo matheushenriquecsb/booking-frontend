@@ -2,10 +2,10 @@ import { QuestionCircleOutlined } from "@ant-design/icons";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { Container, Logo, NavbarButton, NavbarContainer } from "./styles.jsx";
+import { Container, Logo, NavbarButton, NavbarContainer } from "./styles";
 
 const Navbar = () => {
-  const { user, dispatch } = useContext(AuthContext);
+  const { user, dispatch }: any = useContext(AuthContext);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -23,7 +23,11 @@ const Navbar = () => {
           </Link>
         ) : (
           <div>
-            <QuestionCircleOutlined style={{ fontSize: "18px" }} />
+            <QuestionCircleOutlined
+              style={{ fontSize: "18px" }}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            />
             <Link to="/signup">
               <NavbarButton>Cadastre-se</NavbarButton>
             </Link>

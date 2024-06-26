@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import "./styles.jsx";
 import {
   SearchContainer,
   Description,
@@ -18,9 +16,9 @@ import {
   TaxOp,
   CheckButton,
   Image,
-} from "./styles.jsx";
+} from "./styles";
 
-const SearchItem = ({ item }) => {
+const SearchItem = ({ item }: any) => {
   return (
     <SearchContainer>
       <Link to={`/hotels/${item._id}`}>

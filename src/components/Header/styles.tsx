@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   max-width: 1024px;
   margin: 20px 0 100px 0;
 
-  ${(props) =>
+  ${(props): any =>
     props.type === "list" &&
     css`
       margin: 20px 0px 0px 0px;

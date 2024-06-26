@@ -36,9 +36,6 @@ const Footer = () => {
           <FooterListItem>Aluguel de Carros</FooterListItem>
           <FooterListItem>Pesquisa de voos</FooterListItem>
           <FooterListItem>Reservas de restaurantes </FooterListItem>
-          <FooterList>
-            Booking.com para ConsFooterListtores de Viagem
-          </FooterList>
         </FooterList>
         <FooterList>
           <FooterListItem>Sobre a Booking.com</FooterListItem>
