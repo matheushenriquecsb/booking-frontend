@@ -1,4 +1,7 @@
 import styled, { css } from "styled-components";
+interface HeaderContainerProps {
+  type?: string;
+}
 
 export const Container = styled.div`
   background-color: #003580;
@@ -8,7 +11,7 @@ export const Container = styled.div`
   position: relative;
 `;
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div<HeaderContainerProps>`
   width: 100%;
   max-width: 1024px;
   margin: 20px 0 100px 0;

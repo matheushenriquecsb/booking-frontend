@@ -49,7 +49,7 @@ const Footer = () => {
         </FooterList>
       </FooterLists>
       <FooterText>
-        Copyright © 1996–2023 Booking.com™. All rights reserved.
+        Copyright © 1996–2024 Booking.com™. All rights reserved.
       </FooterText>
     </Container>
   );

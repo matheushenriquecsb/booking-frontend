@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {
   faBed,
   faCalendarDays,
@@ -35,6 +34,12 @@ import {
   HeaderContainer,
 } from "./styles";
 
+interface Options {
+  adult: number;
+  children: number;
+  room: number;
+}
+
 const Header = ({ type }: any) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
@@ -47,13 +52,13 @@ const Header = ({ type }: any) => {
   ]);
 
   const [openOptions, setOpenOptions] = useState(false);
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<Options>({
     adult: 1,
     children: 0,
     room: 1,
   });
 
-  const handleOption = (name: string, operation: string) => {
+  const handleOption = (name: keyof Options, operation: string) => {
     setOptions((prev) => {
       return {
         ...prev,
