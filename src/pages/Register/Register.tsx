@@ -3,7 +3,7 @@ import { Tooltip } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { apiURL } from "../../hooks/useFetch";
 import Navbar from "../../components/Navbar/Navbar";
 import "./styles";
 import {
@@ -31,7 +31,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post(`https://booking-api.adaptable.app`, formData);
+      await axios.post(`${apiURL}`, formData);
       setLoading(false);
       navigate("/signin");
     } catch (error: any) {

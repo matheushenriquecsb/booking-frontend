@@ -14,7 +14,7 @@ import Header from "../../components/Header/Header";
 import MailList from "../../components/MailList/MailList";
 import Navbar from "../../components/Navbar/Navbar";
 import { SearchContext } from "../../context/SearchContext";
-import useFetch from "../../hooks/useFetch";
+import useFetch, { apiURL } from "../../hooks/useFetch";
 import {
   Container,
   HotelDetails,
@@ -41,9 +41,7 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const { dates }: any = useContext(SearchContext);
 
-  const { data, loading }: any = useFetch(
-    `https://booking-api.adaptable.app/hotels/find/${id}`
-  );
+  const { data, loading }: any = useFetch(`${apiURL}/hotels/find/${id}`);
 
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
   function dayDifference(date1: any, date2: any) {
