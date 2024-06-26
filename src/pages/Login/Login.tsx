@@ -3,7 +3,7 @@ import { Tooltip } from "antd";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { apiURL } from "../../hooks/useFetch";
 import Navbar from "../../components/Navbar/Navbar";
 import OAuth from "../../components/OAuth/OAuth";
 import { AuthContext } from "../../context/AuthContext";
@@ -35,10 +35,7 @@ export default function SignIn() {
     dispatch({ type: "LOGIN_START" });
     try {
       setLoading(true);
-      const res = await axios.post(
-        `https://booking-api.adaptable.app/auth/login`,
-        formData
-      );
+      const res = await axios.post(`${apiURL}/auth/login`, formData);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       setLoading(false);
       navigate("/");

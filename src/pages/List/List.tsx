@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { useState } from "react";
 import { DateRange } from "react-date-range";
 import { useLocation } from "react-router-dom";
+import { apiURL } from "../../hooks/useFetch";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import SearchItem from "../../components/SearchItem/SearchItem";
@@ -26,7 +27,7 @@ const List = () => {
   const [options] = useState(location.state.options);
 
   const { data, loading }: any = useFetch(
-    `https://booking-api.adaptable.app/hotels?city=${destination}`
+    `${apiURL}/hotels?city=${destination}`
   );
 
   return (

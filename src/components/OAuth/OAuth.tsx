@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
 import { app } from "../../hooks/firebase";
+import { apiURL } from "../../hooks/useFetch";
 import { Line, MediaIcon, Separator, SocialMedia } from "./styles";
 
 export default function OAuth() {
@@ -22,12 +23,9 @@ export default function OAuth() {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      const res = await axios.post(
-        `https://booking-api.adaptable.app/auth/login-google`,
-        {
-          email: result.user.email,
-        }
-      );
+      const res = await axios.post(`${apiURL}/auth/login-google`, {
+        email: result.user.email,
+      });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/");
     } catch (error: any) {
@@ -41,12 +39,9 @@ export default function OAuth() {
     try {
       const provider = new GithubAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      const res = await axios.post(
-        `https://booking-api.adaptable.app/auth/login-github`,
-        {
-          fullName: result.user.displayName,
-        }
-      );
+      const res = await axios.post(`${apiURL}/auth/login-github`, {
+        fullName: result.user.displayName,
+      });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/");
     } catch (error: any) {

@@ -1,4 +1,4 @@
-import useFetch from "../../hooks/useFetch";
+import useFetch, { apiURL } from "../../hooks/useFetch";
 import Loading from "../Loading/Loading";
 import {
   PropertyAvaliation,
@@ -13,7 +13,7 @@ import {
 
 const FeaturedProperties = () => {
   const { data, loading }: any = useFetch(
-    `https://booking-api.adaptable.app/hotels/featured?featured=true&limit=4`
+    `${apiURL}/hotels/featured?featured=true&limit=4`
   );
 
   return (

@@ -1,11 +1,9 @@
-import useFetch from "../../hooks/useFetch";
+import useFetch, { apiURL } from "../../hooks/useFetch";
 import Loading from "../Loading/Loading";
 import { Container, ListItem, ListImg, ListTitles } from "./styles";
 
 const PropertyList = () => {
-  const { data, loading }: any = useFetch(
-    `https://booking-api.adaptable.app/hotels/countByType`
-  );
+  const { data, loading }: any = useFetch(`${apiURL}/hotels/countByType`);
 
   const images = [
     "https://cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o=",
