@@ -42,7 +42,6 @@ export const PropertyRating = styled.div`
     background-color: #003580;
     color: white;
     border: none;
-    padding: 3px;
     margin-right: 10px;
     margin-top: 5px;
     font-weight: bold;

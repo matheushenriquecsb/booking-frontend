@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
-  width: 1024px;
   font-size: 15px;
 `;
 
@@ -11,6 +9,7 @@ export const FooterLists = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+  margin-top: 15px;
 `;
 
 export const FooterList = styled.ul`

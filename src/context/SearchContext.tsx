@@ -1,5 +1,8 @@
-import { createContext, useReducer } from "react";
-import React from "react";
+import React, { createContext, useReducer } from "react";
+
+interface SearchContextProviderProps {
+  children: React.ReactNode;
+}
 
 const INITIAL_STATE = {
   city: undefined,
@@ -24,7 +27,9 @@ const SearchReducer = (state: any, action: { type: any; payload: any }) => {
   }
 };
 
-export const SearchContextProvider = ({ children }: any) => {
+export const SearchContextProvider: React.FC<SearchContextProviderProps> = ({
+  children,
+}: any) => {
   const [state, dispatch] = useReducer(SearchReducer, INITIAL_STATE);
 
   return (
