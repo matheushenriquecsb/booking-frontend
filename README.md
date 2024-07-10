@@ -1,4 +1,4 @@
-<h1 align="center" style="font-weight: bold;">Food Order Delivery Frontend 💻
+<h1 align="center" style="font-weight: bold;">Booking Clone Frontend 💻
 
  [![Generic badge](https://img.shields.io/badge/ACESSE-WEBSITE-HERE.svg)](https://booking-rent.netlify.app/)
 
@@ -10,19 +10,22 @@
 </p>
 
 <p align="center">
-    <b><p>Aplicação consiste em um sistema de reservas de hotéis. Implementei um sistema de autenticação utilizando OAuth do GitHub e Google, permitindo que os usuários se autentiquem de maneira conveniente e segura através de suas contas existentes.</p> <p>Com a autenticação realizada, os usuários podem explorar as hospedagens disponiveis, escolher as data e quantidade de quartos desejados.</p></b>
-
-
+    <b><p>Aplicação consiste em um sistema de reservas de hotéis. Implementei um sistema de autenticação utilizando OAuth do GitHub e Google, permitindo que os usuários se autentiquem de maneira conveniente e segura através de suas contas existentes.
+</p> <p>Com a autenticação realizada, os usuários podem explorar as hospedagens disponiveis, escolher as data e quantidade de quartos desejados. </p></b>
 </p>
 
 <h2 id="Tecnologias">Tecnologias</h2>
 
 - ReactJS 
+- Styled Components
 - CSS
 - ContextAPI
-- React Router Dom
-- AntD
+- Local Storage
+- React Router 
 - Axios
+- Firebase Authentication
+- OAuth | Github and Google
+
 
 
 <h2 id="started">🚀 Getting started</h2>
