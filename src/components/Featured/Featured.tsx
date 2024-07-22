@@ -15,7 +15,7 @@ const Featured = () => {
         <>
           <FeaturedItem>
             <FeaturedImg
-              src="https://revistaazul.voeazul.com.br/wp-content/uploads/2023/03/conheca-salvador-e-se-apaixone-pela-capital-baiana.jpeg"
+              src="https://www.costadosauipe.com.br/images/news/0473/elevador-lacerda-salavdor.jpg"
               alt="Imagem Salvador"
             />
             <FeaturedTitle>
