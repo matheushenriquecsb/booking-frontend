@@ -32,6 +32,9 @@ import {
   SliderWrapper,
   PriceHighlight,
   Slider,
+  CloseIcon,
+  ArrowIconLeft,
+  ArrowIconRight,
 } from "./styles";
 
 const Hotel = () => {
@@ -42,7 +45,6 @@ const Hotel = () => {
   const { dates }: any = useContext(SearchContext);
 
   const { data, loading }: any = useFetch(`${apiURL}/hotels/find/${id}`);
-
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
   function dayDifference(date1: any, date2: any) {
     const timeDiff = Math.abs(date2.getTime() - date1.getTime());
@@ -79,22 +81,16 @@ const Hotel = () => {
         <Container>
           {open && (
             <Slider>
-              <FontAwesomeIcon
-                icon={faCircleXmark}
-                className="close"
-                onClick={() => setOpen(false)}
-              />
-              <FontAwesomeIcon
+              <CloseIcon icon={faCircleXmark} onClick={() => setOpen(false)} />
+              <ArrowIconLeft
                 icon={faCircleArrowLeft}
-                className="arrow"
                 onClick={() => handleMove("l")}
               />
               <SliderWrapper>
-                <img src={data.photos[slideNumber]?.src} alt="Hotel Image" />
+                <img src={data.photos[slideNumber]} alt="Hotel Image" />
               </SliderWrapper>
-              <FontAwesomeIcon
+              <ArrowIconRight
                 icon={faCircleArrowRight}
-                className="arrow"
                 onClick={() => handleMove("r")}
               />
             </Slider>
