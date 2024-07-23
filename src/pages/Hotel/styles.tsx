@@ -147,27 +147,34 @@ export const Arrow = styled(FontAwesomeIcon)`
 export const Slider = styled.div`
   position: sticky;
   top: 0;
-  left: 0;
+  left: 50;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.613);
   z-index: 999;
   display: flex;
   align-items: center;
+`;
 
-  &.close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
-    color: lightgray;
-    cursor: pointer;
-  }
+export const CloseIcon = styled(FontAwesomeIcon)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: lightgray;
+  cursor: pointer;
+`;
 
-  &.arrow {
-    margin: 20px;
-    font-size: 50px;
-    color: lightgray;
-    cursor: pointer;
-  }
+export const ArrowIconLeft = styled(FontAwesomeIcon)`
+  margin: 20px;
+  font-size: 50px;
+  color: lightgray;
+  cursor: pointer;
+`;
+
+export const ArrowIconRight = styled(FontAwesomeIcon)`
+  margin: 20px;
+  font-size: 50px;
+  color: lightgray;
+  cursor: pointer;
 `;

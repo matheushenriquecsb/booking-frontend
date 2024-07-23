@@ -26,7 +26,7 @@ const Featured = () => {
 
           <FeaturedItem>
             <FeaturedImg
-              src="https://www.cnnbrasil.com.br/viagemegastronomia/wp-content/uploads/sites/5/2022/03/Gramado-divulgacao.jpg?w=1200&h=1200&crop=1"
+              src="https://www.viagensmontreal.com/blog/wp-content/uploads/2022/02/o-que-fazer-em-gramado-e-canela.jpg"
               alt="Imagem Gramado"
             />
             <FeaturedTitle>
@@ -36,7 +36,7 @@ const Featured = () => {
           </FeaturedItem>
           <FeaturedItem>
             <FeaturedImg
-              src="https://emcasa.com/blog/wp-content/uploads/2022/06/eelco-bohtlingk-dPYmxwKLGOI-unsplash.jpg"
+              src="https://jpimg.com.br/uploads/2023/05/turismo-no-rio-de-janeiro-veja-o-que-visitar-na-cidade-maravilhosa.jpg"
               alt="Imagem Rio de Janeiro"
             />
             <FeaturedTitle>

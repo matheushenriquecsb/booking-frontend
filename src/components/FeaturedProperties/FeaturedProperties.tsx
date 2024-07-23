@@ -28,7 +28,7 @@ const FeaturedProperties = () => {
               <PropertyName>{item.name}</PropertyName>
               <PropertyCity>{item.city}</PropertyCity>
               <PropertyPrice>
-                A partir de <b>${item.cheapestPrice}</b>
+                A partir de <b>R${item.cheapestPrice}</b>
               </PropertyPrice>
               {item.rating && (
                 <PropertyRating>
