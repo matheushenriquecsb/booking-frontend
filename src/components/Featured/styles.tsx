@@ -7,6 +7,10 @@ export const Container = styled.div`
   justify-content: space-between;
   gap: 20px;
   z-index: 1;
+
+  @media (max-width: 968px) {
+    height: 100px;
+  }
 `;
 
 export const FeaturedItem = styled.div`
@@ -16,6 +20,10 @@ export const FeaturedItem = styled.div`
   overflow: hidden;
   height: 250px;
   flex: 1;
+
+  @media (max-width: 968px) {
+    height: 100px;
+  }
 `;
 
 export const FeaturedImg = styled.img`
@@ -28,4 +36,10 @@ export const FeaturedTitle = styled.div`
   position: absolute;
   bottom: 20px;
   left: 20px;
+
+  @media (max-width: 968px) {
+    font-size: 8px;
+    bottom: 10px;
+    left: 10px;
+  }
 `;

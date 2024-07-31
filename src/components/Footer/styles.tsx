@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 1024px;
   font-size: 15px;
+
+  @media (max-width: 968px) {
+    width: 100%;
+    font-size: 7px;
+  }
 `;
 
 export const FooterLists = styled.div`
@@ -30,4 +35,9 @@ export const FooterText = styled.div`
   align-items: center;
   justify-content: center;
   align-content: center;
+  @media (max-width: 968px) {
+    width: 100%;
+    font-size: 10px;
+    margin-left: 50px;
+  }
 `;
