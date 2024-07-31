@@ -41,4 +41,7 @@ export const NavbarButton = styled.button`
   padding: 5px 10px;
   cursor: pointer;
   color: #003580;
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;

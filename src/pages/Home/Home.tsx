@@ -5,14 +5,14 @@ import Header from "../../components/Header/Header";
 import MailList from "../../components/MailList/MailList";
 import Navbar from "../../components/Navbar/Navbar";
 import PropertyList from "../../components/PropertyList/PropertyList";
-import { Container, HomeSubtitles } from "./styles";
+import { Container, Wrapper, HomeSubtitles } from "./styles";
 
 const Home = () => {
   return (
-    <div>
+    <Container>
       <Navbar />
       <Header />
-      <Container>
+      <Wrapper>
         <HomeSubtitles>Destinos mais procurados</HomeSubtitles>
         <Featured />
         <HomeSubtitles>Procure sua melhor acomodação</HomeSubtitles>
@@ -21,8 +21,8 @@ const Home = () => {
         <FeaturedProperties />
         <MailList />
         <Footer />
-      </Container>
-    </div>
+      </Wrapper>
+    </Container>
   );
 };
 

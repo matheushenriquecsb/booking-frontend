@@ -10,6 +10,9 @@ export const Container = styled.div`
   align-items: center;
   gap: 20px;
   padding: 50px;
+  @media (max-width: 968px) {
+    width: 100%;
+  }
 `;
 
 export const MailTitle = styled.h1`
@@ -45,5 +48,8 @@ export const MailInputContainer = styled.div`
     border-radius: 5px;
     cursor: pointer;
     font-size: medium;
+  }
+  @media (max-width: 968px) {
+    width: 100%;
   }
 `;

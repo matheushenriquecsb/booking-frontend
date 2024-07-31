@@ -9,6 +9,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+
+  @media (max-width: 968px) {
+    padding: 10px;
+  }
 `;
 
 export const HeaderContainer = styled.div<HeaderContainerProps>`
@@ -27,6 +31,10 @@ export const HeaderList = styled.div`
   display: flex;
   gap: 40px;
   margin-bottom: 50px;
+
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const HeaderListItem = styled.div`
@@ -71,16 +79,27 @@ export const HeaderSearch = styled.div`
   bottom: -25px;
   width: 100%;
   max-width: 1024px;
+
+  @media (max-width: 968px) {
+    width: 80%;
+  }
 `;
 
 export const HeaderIcon = styled.span`
   color: lightgray;
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const HeaderSearchItem = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 968px) {
+    width: 20%;
+  }
 `;
 
 export const HeaderSearchInput = styled.input`
@@ -94,12 +113,19 @@ export const HeaderSearchText = styled.span`
   color: lightgray;
   cursor: pointer;
   font-weight: 550;
+
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const DatePicker = styled.div`
   position: absolute;
   top: 50px;
   z-index: 2;
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const Options = styled.div`
@@ -110,6 +136,9 @@ export const Options = styled.div`
   color: gray;
   border-radius: 5px;
   box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const OptionItem = styled.div`
@@ -117,6 +146,9 @@ export const OptionItem = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px;
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const OptionCounter = styled.div`
@@ -125,6 +157,9 @@ export const OptionCounter = styled.div`
   gap: 10px;
   font-size: 12px;
   color: black;
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 
 export const OptionCounterButton = styled.button`
@@ -134,6 +169,9 @@ export const OptionCounterButton = styled.button`
   color: #0071c2;
   cursor: pointer;
   background-color: white;
+  @media (max-width: 968px) {
+    display: none;
+  }
 
   &:disabled {
     cursor: not-allowed;
